@@ -22,9 +22,10 @@ export default {
 `i-countdown`组件中接收的参数有： 
 
 * endTime: {string | number} 截止时间，格式时间或毫秒级时间戳 '2018/08/08 23:59:59' | 1533743999000
-* format string 展示的时间格式， d表示天， h表示时间， m表示分， s表示秒
-* start boolean 手动开启倒计时
-* stop boolean 手动结束倒计时
+* diff: number 倒计时的频率，单位毫秒，默认为1000
+* format: string 展示的时间格式， d表示天， h表示时间， m表示分， s表示秒
+* start: boolean 手动开启倒计时
+* stop: boolean 手动结束倒计时
 
 监听的方法： 
 
