@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
+    name: 'i-countdown',
     props: {
         diff: {
             type: Number,
@@ -37,14 +38,15 @@ export default {
 
     watch: {
         'start': function (val, oldVal) {
-            console.log(val, oldVal);
-            this.startSteps({
-                diff: this.diff,
-                format: this.format,
-                startTime: this.startTime,
-                endTime: this.endTime,
-                stop: this.stop
-            });
+            if (val) {
+                this.startSteps({
+                    diff: this.diff,
+                    format: this.format,
+                    startTime: this.startTime,
+                    endTime: this.endTime,
+                    stop: this.stop
+                });
+            }
         }
     },
 
@@ -64,7 +66,7 @@ export default {
          * @param {*} 配置
          * @param {number} diff 变动的频率，单位是ms
          * @param {string} format string 返回的格式
-         * @param {string, number}startTime 截止时间，格式时间或毫秒级时间戳 '2018/08/08 23:59:59' | 1533743999000
+         * @param {string, number}startTime 开始时间，格式时间或毫秒级时间戳 '2018/08/08 23:59:59' | 1533743999000
          * @param {string, number}endTime 截止时间，格式时间或毫秒级时间戳 '2018/08/08 23:59:59' | 1533743999000
          * @param {boolean} stop 是否直接当前倒计时
          * @param {function} steps 每一步执行的方法，参数为当前的倒计时时间，格式就是format参数里设定的
